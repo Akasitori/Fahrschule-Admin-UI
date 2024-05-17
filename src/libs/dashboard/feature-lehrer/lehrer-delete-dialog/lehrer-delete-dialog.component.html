@@ -1,0 +1,22 @@
+<div class="title">
+    <p mat-dialog-title>Lehrer Löschen</p>
+  </div>
+  
+  <div class="container">
+  
+    <div class="frage-style" mat-dialog-content>
+      <h4>Möchten Sie wirklich den Lehrer {{data.vorname}} {{data.nachname}} löschen?</h4>
+    </div>
+  
+    <div mat-dialog-actions class="button-span">
+      <button mat-button (click)="lehrerNichtLoeschen()">Nein</button>
+      <button 
+        mat-button 
+        (click)="lehrerLoeschen()"
+        mat-dialog-close 
+        cdkFocusInitial
+      >
+        Ja
+      </button>
+    </div>
+  </div>

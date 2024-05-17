@@ -1,0 +1,281 @@
+<div class="body">
+
+    <div class="title-span">
+
+        <div class="title-name">
+            <h1> <a href="#">Home</a> > neue Lehrer hinzufügen </h1>
+        </div>
+
+    </div>
+
+        <div class="container">
+
+            <div class="box-span">
+                
+                <form [formGroup]="newLehrerFormular">
+
+                    <div class="box-span-inhalt">
+
+                        <!-- image -->
+                        <div class="change-image">
+                            <div class="lehrer-image">
+                                <img src="../assets/img/profile/person1.png" width="150" height="150">                 
+                            </div>
+                            <button mat-raised-button> Avator ändern</button>
+                        </div>
+
+                        <div class="information-span">
+
+                            <!-- persönliche Information -->
+                            <div class="info-box">
+                                <h3> persönliche Information</h3>
+                                <!--vorname nachname-->
+                                <div class="row-span">
+
+                                    <div class="left">
+                                        <div class="label-row">
+                                            <mat-label class="label-style">Vorname</mat-label>
+                                        </div>
+                                        <div class="input-row">
+                                            <mat-form-field appearance="fill">
+                                                <input formControlName="vorname"
+                                                    matInput
+                                                    type="text"
+                                                />
+                                            </mat-form-field>
+                                        </div>
+                                    </div>
+
+                                    <div class="right">
+                                        <div class="label-row">
+                                            <mat-label class="label-style">Nachname</mat-label>
+                                        </div>
+                                        <div class="input-row">
+                                            <mat-form-field appearance="fill" class="input-style">
+                                                <input
+                                                    matInput
+                                                    type="text"
+                                                    formControlName="nachname"
+                                                />
+
+                                            </mat-form-field>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!--geburtsdatum geschlecht-->
+                                <div class="row-span">
+
+                                    <div class="left">
+                                        <div class="label-row">
+                                            <mat-label class="label-style">Geschlecht</mat-label>
+                                        </div>
+                                        <div class="input-row">
+                                            <mat-form-field appearance="fill" class="input-style">
+                                                <mat-select formControlName="geschlecht">
+                                                    <mat-option value="female">Female</mat-option>
+                                                    <mat-option value="male">Male</mat-option>
+                                                </mat-select>
+                                            </mat-form-field>
+                                        </div>
+                                    </div>
+
+                                    <div class="right">
+                                        <div class="label-row">
+                                            <mat-label class="label-style">Geburtsdatum</mat-label>
+                                        </div>
+                                        <div class="input-row">
+                                            <mat-form-field appearance="fill" class="input-style">
+                                                <input
+                                                    matInput
+                                                    type="text"
+                                                    formControlName="geburtsdatum"
+                                                    [matDatepicker]="pickerA"
+                                                />
+                                                <mat-datepicker-toggle matIconSuffix [for]="pickerA"></mat-datepicker-toggle>
+                                                <mat-datepicker #pickerA></mat-datepicker>
+                                            </mat-form-field>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <!-- Adresse -->
+                            <div class="info-box">
+                                <h3> Adresse</h3>
+                                <!--strasse hausnummer-->
+                                <div class="row-span">
+
+                                    <div class="left">
+                                        <div class="label-row">
+                                            <mat-label class="label-style">Straße</mat-label>
+                                        </div>
+                                        <div class="input-row">
+                                            <mat-form-field appearance="fill">
+                                                <input
+                                                    matInput
+                                                    type="text"
+                                                    formControlName="strasse"
+                                                />
+                                            </mat-form-field>
+                                        </div>
+                                    </div>
+
+                                    <div class="right">
+                                        <div class="label-row">
+                                            <mat-label class="label-style">Hausnummer</mat-label>
+                                        </div>
+                                        <div class="input-row">
+                                            <mat-form-field appearance="fill" class="input-style">
+                                                <input
+                                                    matInput
+                                                    type="text"
+                                                    formControlName="hausNr"
+                                                />
+
+                                            </mat-form-field>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!--stadt plz-->
+                                <div class="row-span">
+
+                                    <div class="left">
+                                        <div class="label-row">
+                                            <mat-label class="label-style">Stadt</mat-label>
+                                        </div>
+                                        <div class="input-row">
+                                            <mat-form-field appearance="fill" class="input-style">
+                                                <input
+                                                    matInput
+                                                    type="text"
+                                                    formControlName="stadt"
+                                                />
+
+                                            </mat-form-field>
+                                        </div>
+                                    </div>
+
+                                    <div class="right">
+                                        <div class="label-row">
+                                            <mat-label class="label-style">Postleitzahl</mat-label>
+                                        </div>
+                                        <div class="input-row">
+                                            <mat-form-field appearance="fill" class="input-style">
+                                                <input
+                                                    matInput
+                                                    type="text"
+                                                    formControlName="plz"
+                                                />
+
+                                            </mat-form-field>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <!-- Kontaktdaten -->
+                            <div class="info-box">
+                                <h3> Kontaktdaten </h3>
+                                <!--telefonnummer email-->
+                                <div class="row-span">
+
+                                    <div class="left">
+                                        <div class="label-row">
+                                            <mat-label class="label-style">Telefonnummer</mat-label>
+                                        </div>
+                                        <div class="input-row">
+                                            <mat-form-field appearance="fill">
+                                                <input
+                                                    matInput
+                                                    type="text"
+                                                    formControlName="tel"
+                                                />
+                                            </mat-form-field>
+                                        </div>
+                                    </div>
+
+                                    <div class="right">
+                                        <div class="label-row">
+                                            <mat-label class="label-style">Email Adresse</mat-label>
+                                        </div>
+                                        <div class="input-row">
+                                            <mat-form-field appearance="fill" class="input-style">
+                                                <input
+                                                    matInput
+                                                    type="text"
+                                                    formControlName="email"
+                                                />
+
+                                            </mat-form-field>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <!-- Qualifikation -->
+                            <div class="info-box">
+                                <h3> Qualifikation </h3>
+                                <!--führerscheinklasse zertifikate-->
+                                <div class="row-span">
+
+                                    <div class="left">
+                                        <div class="label-row">
+                                            <mat-label class="label-style">Führerscheinklasse</mat-label>
+                                        </div>
+                                        <div class="input-row">
+                                            <mat-form-field appearance="fill">
+                                                <input
+                                                    matInput
+                                                    type="text"
+                                                    formControlName="fuehrerscheinklasse"
+                                                />
+                                            </mat-form-field>
+                                        </div>
+                                    </div>
+
+                                    <div class="right">
+                                        <div class="label-row">
+                                            <mat-label class="label-style">Zertifikate</mat-label>
+                                        </div>
+                                        <div class="input-row">
+                                            <mat-form-field appearance="fill" class="input-style">
+                                                <mat-select formControlName="zertifikate">
+                                                    <mat-option [value]="true">Zertifiziert</mat-option>
+                                                    <mat-option [value]="false">nicht Zertifiziert</mat-option>
+                                                </mat-select>
+                                            </mat-form-field>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <!-- Buttons -->
+                            <div class="info-box"  id="button-box">
+                                <div class="button-span">
+                                    <button 
+                                        mat-raised-button
+                                        (click)="speichernNeuerLehrer()"
+                                    >
+                                        Speichern
+                                    </button>
+                                    <button mat-raised-button (click)="Abbrechen()">Abbrechen</button>
+                                </div>
+                            </div>     
+                            
+                        </div>
+
+                    </div>
+
+                </form>
+            
+            </div>
+        
+        </div>
+   
+  </div>

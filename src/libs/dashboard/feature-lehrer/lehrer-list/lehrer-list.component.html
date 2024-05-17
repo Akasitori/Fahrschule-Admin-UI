@@ -1,0 +1,41 @@
+
+<div class="body">
+
+    <div class="title-row">
+  
+      <div class="title-name">
+        <h1> <a href="#">Home</a> > Lehrerliste</h1>
+      </div>
+  
+      <div class="search-header">
+        
+        <div class="filter">
+          <input
+            matInput
+            class="search-input"
+            type="text"
+            placeholder="Nachname"
+          />
+        </div>
+  
+        <div class="search-btn">
+          <button mat-raised-button class="btn"> Suchen </button>
+        </div>
+  
+      </div>
+  
+    </div>
+  
+    <div class="lehrerAuflistung" *ngIf="lehrerList$ | async as lehrers">
+      <app-lehrer-feedcard
+        *ngFor="let lehrer of lehrers.value"
+          [vorname]="lehrer.vorname"
+          [nachname]="lehrer.nachname"
+          [id]="lehrer.id"
+      >
+      </app-lehrer-feedcard>
+    </div>
+    
+  </div>
+  
+  

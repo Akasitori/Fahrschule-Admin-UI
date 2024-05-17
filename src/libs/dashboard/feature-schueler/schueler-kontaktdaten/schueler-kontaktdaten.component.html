@@ -1,0 +1,393 @@
+<div class="body">
+
+    <div class="title-span">
+
+        <div class="title-name">
+            <h1> <a href="#">Home</a> > <a href="/schuelerliste">Schülerliste</a> > Kontaktdaten von {{vorname}} {{nachname}}</h1>
+        </div>
+
+    </div>
+
+    <div class="container">
+
+        <div class="box-span">
+            
+            <form [formGroup]="schuelerForm">
+
+                <div class="box-span-inhalt">
+
+                    <!-- image -->
+                    <div class="change-image">
+                        <div class="schueler-image">
+                            <img src="../assets/img/profile/person10.png" width="150" height="150">                 
+                        </div>
+                        <button mat-raised-button> Avator ändern</button>
+                    </div>
+
+                    <div class="information-span">
+
+                        <!-- persönliche Information -->
+                        <div class="info-box">
+                            <h3> persönliche Information</h3>
+                            <!--vorname nachname-->
+                            <div class="row-span">
+
+                                <div class="left">
+                                    <div class="label-row">
+                                        <mat-label [ngClass]="{'label-style' : true, 'bearbeitungAktiv' : bearbeitungsmodusAktiv}">Vorname</mat-label>
+                                    </div>
+                                    <div class="input-row">
+                                        <mat-form-field appearance="fill">
+                                            <input formControlName="vorname"
+                                                matInput
+                                                type="text"
+                                                [readonly]="bearbeitenDeaktiviert"
+                                            />
+                                        </mat-form-field>
+                                    </div>
+                                </div>
+
+                                <div class="right">
+                                    <div class="label-row">
+                                        <mat-label [ngClass]="{'label-style' : true, 'bearbeitungAktiv' : bearbeitungsmodusAktiv}">Nachname</mat-label>
+                                    </div>
+                                    <div class="input-row">
+                                        <mat-form-field appearance="fill" class="input-style">
+                                            <input formControlName="nachname"
+                                                matInput
+                                                type="text"
+                                                [readonly]="bearbeitenDeaktiviert"
+                                            />
+
+                                        </mat-form-field>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!--geburtsdatum geschlecht-->
+                            <div class="row-span">
+
+                                <div class="left">
+                                    <div class="label-row">
+                                        <mat-label [ngClass]="{'label-style' : true, 'bearbeitungAktiv' : bearbeitungsmodusAktiv}">Geschlecht</mat-label>
+                                    </div>
+                                    <div class="input-row">
+                                        <mat-form-field appearance="fill" class="input-style">
+                                            <mat-select formControlName="geschlecht">
+                                                <mat-option [disabled]="bearbeitenDeaktiviert" value="Male">Männlich</mat-option>
+                                                <mat-option [disabled]="bearbeitenDeaktiviert" value="Female">Weiblich</mat-option>
+                                                <mat-option [disabled]="bearbeitenDeaktiviert" value="Divers">Divers</mat-option>
+                                            </mat-select>
+                                        </mat-form-field>
+                                    </div>
+                                </div>
+
+                                <div class="right">
+                                    <div class="label-row">
+                                        <mat-label [ngClass]="{'label-style' : true, 'bearbeitungAktiv' : bearbeitungsmodusAktiv}">Geburtsdatum</mat-label>
+                                    </div>
+                                    <div class="input-row">
+                                        <mat-form-field appearance="fill" class="input-style">
+                                            <input formControlName="geburtsdatum" [matDatepicker]="pickerA"
+                                                matInput
+                                                type="text"
+                                                [readonly]="bearbeitenDeaktiviert"
+                                            />
+                                            <mat-datepicker-toggle matIconSuffix [for]="pickerA"></mat-datepicker-toggle>
+                                            <mat-datepicker [disabled]="bearbeitenDeaktiviert" #pickerA></mat-datepicker>
+                                        </mat-form-field>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <!-- Adresse -->
+                        <div class="info-box">
+                            <h3> Adresse</h3>
+                            <!--strasse hausnummer-->
+                            <div class="row-span">
+
+                                <div class="left">
+                                    <div class="label-row">
+                                        <mat-label [ngClass]="{'label-style' : true, 'bearbeitungAktiv' : bearbeitungsmodusAktiv}">Straße</mat-label>
+                                    </div>
+                                    <div class="input-row">
+                                        <mat-form-field appearance="fill">
+                                            <input formControlName="strasse"
+                                                matInput
+                                                type="text"
+                                                [readonly]="bearbeitenDeaktiviert"
+                                            />
+                                        </mat-form-field>
+                                    </div>
+                                </div>
+
+                                <div class="right">
+                                    <div class="label-row">
+                                        <mat-label [ngClass]="{'label-style' : true, 'bearbeitungAktiv' : bearbeitungsmodusAktiv}">Hausnummer</mat-label>
+                                    </div>
+                                    <div class="input-row">
+                                        <mat-form-field appearance="fill" class="input-style">
+                                            <input formControlName="hausNr"
+                                                matInput
+                                                type="text"
+                                                [readonly]="bearbeitenDeaktiviert"
+                                            />
+
+                                        </mat-form-field>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!--stadt plz-->
+                            <div class="row-span">
+
+                                <div class="left">
+                                    <div class="label-row">
+                                        <mat-label [ngClass]="{'label-style' : true, 'bearbeitungAktiv' : bearbeitungsmodusAktiv}">Stadt</mat-label>
+                                    </div>
+                                    <div class="input-row">
+                                        <mat-form-field appearance="fill" class="input-style">
+                                            <input formControlName="stadt"
+                                                matInput
+                                                type="text"
+                                                [readonly]="bearbeitenDeaktiviert"
+                                            />
+
+                                        </mat-form-field>
+                                    </div>
+                                </div>
+
+                                <div class="right">
+                                    <div class="label-row">
+                                        <mat-label [ngClass]="{'label-style' : true, 'bearbeitungAktiv' : bearbeitungsmodusAktiv}">Postleitzahl</mat-label>
+                                    </div>
+                                    <div class="input-row">
+                                        <mat-form-field appearance="fill" class="input-style">
+                                            <input formControlName="plz"
+                                                matInput
+                                                type="text"
+                                                [readonly]="bearbeitenDeaktiviert"
+                                            />
+
+                                        </mat-form-field>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <!-- Kontaktdaten -->
+                        <div class="info-box">
+                            <h3> Kontaktdaten </h3>
+                            <!--telefonnummer email-->
+                            <div class="row-span">
+
+                                <div class="left">
+                                    <div class="label-row">
+                                        <mat-label [ngClass]="{'label-style' : true, 'bearbeitungAktiv' : bearbeitungsmodusAktiv}">Telefonnummer</mat-label>
+                                    </div>
+                                    <div class="input-row">
+                                        <mat-form-field appearance="fill">
+                                            <input formControlName="tel"
+                                                matInput
+                                                type="text"
+                                                [readonly]="bearbeitenDeaktiviert"
+                                            />
+                                        </mat-form-field>
+                                    </div>
+                                </div>
+
+                                <div class="right">
+                                    <div class="label-row">
+                                        <mat-label [ngClass]="{'label-style' : true, 'bearbeitungAktiv' : bearbeitungsmodusAktiv}">Email Adresse</mat-label>
+                                    </div>
+                                    <div class="input-row">
+                                        <mat-form-field appearance="fill" class="input-style">
+                                            <input formControlName="email"
+                                                matInput
+                                                type="text"
+                                                [readonly]="bearbeitenDeaktiviert"
+                                            />
+
+                                        </mat-form-field>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <!-- Status -->
+                        <div class="info-box">
+                            <h3> Status </h3>
+                            <!--Datum der Anmeldung , statue-->
+                            <div class="row-span">
+
+                                <div class="left">
+                                    <div class="label-row">
+                                        <mat-label [ngClass]="{'label-style' : true, 'bearbeitungAktiv' : bearbeitungsmodusAktiv}">Datum der Anmeldung</mat-label>
+                                    </div>
+                                    <div class="input-row">
+                                        <mat-form-field appearance="fill">
+                                            <input formControlName="datumDerAnmeldung" [matDatepicker]="pickerB"
+                                                matInput
+                                                type="text"
+                                                [readonly]="bearbeitenDeaktiviert"
+                                            />
+                                            <mat-datepicker-toggle matIconSuffix [for]="pickerB"></mat-datepicker-toggle>
+                                            <mat-datepicker [disabled]="bearbeitenDeaktiviert" #pickerB></mat-datepicker>
+                                        </mat-form-field>
+                                    </div>
+                                </div>
+
+                                <div class="right">
+                                    <div class="label-row">
+                                        <mat-label [ngClass]="{'label-style' : true, 'bearbeitungAktiv' : bearbeitungsmodusAktiv}">Status</mat-label>
+                                    </div>
+                                    <div class="input-row">
+                                        <mat-form-field appearance="fill" class="input-style">
+                                            <mat-select formControlName="status">
+                                                <mat-option [disabled]="bearbeitenDeaktiviert" value="Neu">Neu</mat-option>
+                                                <mat-option [disabled]="bearbeitenDeaktiviert" value="Aktiv">Aktiv</mat-option>
+                                                <mat-option [disabled]="bearbeitenDeaktiviert" value="TheorieBestanden">Theorie bestanden</mat-option>
+                                                <mat-option [disabled]="bearbeitenDeaktiviert" value="Abgeschlossen">Abgeschlossen</mat-option>
+                                            </mat-select>
+                                        </mat-form-field>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!--angemeldete Führerscheinklassen  Getriebetyp-->
+                            <div class="row-span">
+
+                                <div class="left">
+                                    <div class="label-row">
+                                        <mat-label [ngClass]="{'label-style' : true, 'bearbeitungAktiv' : bearbeitungsmodusAktiv}">angemeldete Führerscheinklassen</mat-label>
+                                    </div>
+                                    <div class="input-row">
+                                        <mat-form-field appearance="fill" class="input-style">
+                                            <mat-select formControlName="fuehrerscheinklassen" multiple>
+                                                <mat-option [disabled]="bearbeitenDeaktiviert" *ngFor="let option of fuehrerscheinklassenList" [value]="option">
+                                                    {{option}}
+                                                </mat-option>
+                                              </mat-select>
+                                        </mat-form-field>
+                                    </div>
+                                </div>
+
+                                <div class="right">
+                                    <div class="label-row">
+                                        <mat-label [ngClass]="{'label-style' : true, 'bearbeitungAktiv' : bearbeitungsmodusAktiv}">Getriebetyp</mat-label>
+                                    </div>
+                                    <div class="input-row">
+                                        <mat-form-field appearance="fill" class="input-style">
+                                            <mat-select formControlName="getriebeTyp">
+                                                <mat-option [disabled]="bearbeitenDeaktiviert" value="Schaltgetriebe">Schaltgetriebe</mat-option>
+                                                <mat-option [disabled]="bearbeitenDeaktiviert" value="Automatik">Automatik</mat-option>
+                                            </mat-select>
+                                        </mat-form-field>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <!-- weitere Info -->
+                        <div class="info-box">
+                            <h3> weitere Info </h3>
+                            <!--lehrer-name anmelde-id-->
+                            <div class="row-span">
+
+                                <div class="left">
+                                    <div class="label-row">
+                                        <mat-label [ngClass]="{'label-style' : true, 'bearbeitungAktiv' : bearbeitungsmodusAktiv}">Lehrer</mat-label>
+                                    </div>
+                                    <div class="input-row">
+                                        <mat-form-field appearance="fill" class="input-style">
+                                            <mat-select formControlName="lehrerId">
+                                                <span *ngIf="lehrerList$ | async as lehrers">
+                                                    <mat-option [disabled]="bearbeitenDeaktiviert" value=""></mat-option>
+                                                    <mat-option [disabled]="bearbeitenDeaktiviert" *ngFor="let lehrer of lehrers.value" value="{{lehrer.id}}">{{lehrer.vorname}} {{lehrer.nachname}}</mat-option>
+                                                  </span>
+                                            </mat-select>
+                                        </mat-form-field>
+                                    </div>
+                                </div>
+
+                                <div class="right">
+                                    <div class="label-row">
+                                        <mat-label class="label-style">Schüler ID</mat-label>
+                                    </div>
+                                    <div class="input-row">
+                                        <mat-form-field appearance="fill" class="input-style">
+                                            <input
+                                                formControlName="id"
+                                                matInput
+                                                type="text"
+                                                [readonly]=true
+                                            />
+
+                                        </mat-form-field>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <!-- Buttons -->
+                        <div class="info-box"  id="button-box" *ngIf="bearbeitungsmodusAktiv == false; else bearbeitungsModusAktiv">
+                            <div class="button-span">
+                                <button
+                                    class="aktivierterButton"
+                                    mat-raised-button
+                                    [disabled]="bearbeitenButtonDeaktiviert"
+                                    (click)="bearbeitungAktivieren()"
+                                >
+                                    Bearbeiten
+                                </button>
+                                <button
+                                        class="aktivierterButton"
+                                        mat-raised-button
+                                        [disabled]="bearbeitenButtonDeaktiviert"
+                                        (click)="openDialog()"
+                                    >
+                                    Löschen
+                                </button>
+                            </div>
+                        </div> 
+
+                        <!-- Verwerfen - enable Speichern -->
+                        <ng-template #bearbeitungsModusAktiv>
+                            <div class="info-box"  id="button-box">
+                                <div class="button-span">
+                                    <button
+                                        class="aktivierterButton"
+                                        mat-raised-button
+                                        (click)="bearbeitungDeaktivieren()"
+                                    >
+                                        Verwerfen
+                                    </button>
+                                    <button 
+                                        class="aktivierterButton"
+                                        mat-raised-button
+                                        type="submit"
+                                        (click)="speichernKontaktdaten()"
+                                    >
+                                        Speichern
+                                    </button>
+                                </div>
+                            </div> 
+                        </ng-template>
+                        
+                    </div>
+
+                </div>
+
+            </form>
+        
+        </div>
+      
+    </div>
+
+  </div>

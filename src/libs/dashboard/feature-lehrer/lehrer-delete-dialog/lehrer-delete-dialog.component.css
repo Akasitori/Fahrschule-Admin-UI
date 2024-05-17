@@ -1,0 +1,35 @@
+.title {
+    background-color: #110777;
+    /*#4345e8;*/
+    color: #fff;
+    padding: 10px 10px 1px 10px;
+}
+
+.title p {
+    font-size: 18px;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    margin: 0px 26px;
+}
+
+.frage-style h4 {
+    text-align: center;
+    padding-top: 10px;
+}
+
+button {
+    cursor: pointer;
+}
+
+.button-span {
+    display: flex;
+    gap: 10px
+}
+
+.button-span button {
+    background-color: #ff9b99;
+    color: #fff;
+}
